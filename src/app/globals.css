@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+:root {
+  --navy: #0f1b2d;
+  --navy-light: #1a2d4a;
+  --gold: #c9a84c;
+  --gold-light: #d4b96a;
+  --slate: #64748b;
+  --light: #f8fafc;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  color: var(--navy);
+}
