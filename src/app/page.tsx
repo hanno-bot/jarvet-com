@@ -1,4 +1,8 @@
+import { getAllPosts } from "@/lib/posts";
+import Link from "next/link";
+
 export default function Home() {
+  const recentPosts = getAllPosts().slice(0, 3);
   return (
     <>
       {/* Navigation */}
@@ -24,6 +28,9 @@ export default function Home() {
               <a href="#testimonials" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
                 Testimonials
               </a>
+              <Link href="/updates" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                Updates
+              </Link>
               <a
                 href="#contact"
                 className="text-sm font-semibold px-5 py-2.5 rounded-md text-white transition-colors bg-[var(--navy)] hover:bg-[var(--navy-light)]"
@@ -385,6 +392,61 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Latest Updates Section */}
+        {recentPosts.length > 0 && (
+          <section aria-label="Latest updates" className="py-24 md:py-32 bg-white">
+            <div className="max-w-6xl mx-auto px-6">
+              <p
+                className="text-sm font-semibold tracking-widest uppercase mb-4"
+                style={{ color: "var(--gold)" }}
+              >
+                Latest Updates
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: "var(--navy)" }}>
+                Insights &amp; Updates
+              </h2>
+              <p className="text-lg text-gray-500 mb-16 max-w-2xl">
+                Thoughts on strategy, leadership, and turning challenges into opportunities.
+              </p>
+
+              <div className="grid md:grid-cols-3 gap-8">
+                {recentPosts.map((post) => (
+                  <Link
+                    key={post.slug}
+                    href={`/updates/${post.slug}`}
+                    className="group p-8 rounded-lg border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all duration-300 block"
+                  >
+                    <time className="text-sm text-gray-400" dateTime={post.date}>
+                      {new Date(post.date).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
+                    </time>
+                    <h3
+                      className="text-xl font-bold mt-2 mb-3 group-hover:underline"
+                      style={{ color: "var(--navy)" }}
+                    >
+                      {post.title}
+                    </h3>
+                    <p className="text-gray-500 leading-relaxed">{post.summary}</p>
+                  </Link>
+                ))}
+              </div>
+
+              <div className="mt-12 text-center">
+                <Link
+                  href="/updates"
+                  className="inline-flex items-center justify-center px-8 py-3 rounded-md text-sm font-semibold transition-colors border border-gray-200 hover:border-gray-300 hover:bg-gray-50"
+                  style={{ color: "var(--navy)" }}
+                >
+                  View All Updates
+                </Link>
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* FAQ Section */}
         <section id="faq" aria-label="Frequently asked questions" className="py-24 md:py-32 bg-white">
           <div className="max-w-3xl mx-auto px-6">
@@ -481,7 +543,7 @@ export default function Home() {
             &copy; {new Date().getFullYear()} Jarvet Consulting. All rights reserved.
           </p>
           <nav aria-label="Footer navigation">
-            <div className="flex gap-6">
+            <div className="flex items-center gap-6">
               <a href="#services" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">
                 Services
               </a>
@@ -493,6 +555,17 @@ export default function Home() {
               </a>
               <a href="#contact" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">
                 Contact
+              </a>
+              <a
+                href="https://www.linkedin.com/in/hannojarvet/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-gray-600 transition-colors"
+                aria-label="LinkedIn"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
               </a>
             </div>
           </nav>

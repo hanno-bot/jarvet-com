@@ -30,15 +30,15 @@ Shared task list for all Claude agents (CLI and Desktop). Agents should check th
 
 ### P1 — High Priority: Blog / Updates
 
-- [ ] **Blog infrastructure** — Install `@next/mdx` and `gray-matter`, configure `next.config.ts` for MDX support. Posts live in `src/content/posts/` as `.mdx` files with YAML frontmatter (title, date, summary, tags)
-- [ ] **Blog listing page** — Create `src/app/updates/page.tsx` showing all posts sorted by date, with title, date, summary, and tags
-- [ ] **Blog post page** — Create `src/app/updates/[slug]/page.tsx` with dynamic routing, `generateStaticParams`, and `generateMetadata` for per-post SEO (OG title, description, canonical)
-- [ ] **Blog post styling** — Add Tailwind Typography plugin (`@tailwindcss/typography`) for clean prose styling in posts
-- [ ] **Blog JSON-LD** — Add `BlogPosting` structured data to each post page (headline, datePublished, author, description)
-- [ ] **Blog in sitemap** — Update `sitemap.ts` to include all blog post URLs with `lastModified` from frontmatter dates
-- [ ] **Blog RSS feed** — Add `/updates/feed.xml` route for RSS subscribers and LLM crawlers
-- [ ] **Nav + homepage link** — Add "Updates" link to site nav and an "Latest Updates" section on the homepage showing the 2–3 most recent posts
-- [ ] **First post** — Write a seed post (e.g., "Why I'm writing here") so the blog isn't empty at launch
+- [x] **Blog infrastructure** — @next/mdx, gray-matter, next-mdx-remote, MDX config in next.config.ts. Posts in `src/content/posts/` with YAML frontmatter
+- [x] **Blog listing page** — `src/app/updates/page.tsx` with date sorting, tags, SEO metadata
+- [x] **Blog post page** — `src/app/updates/[slug]/page.tsx` with generateStaticParams, generateMetadata, MDXRemote rendering
+- [x] **Blog post styling** — @tailwindcss/typography for prose styling
+- [x] **Blog JSON-LD** — BlogPosting structured data on each post page
+- [x] **Blog in sitemap** — sitemap.ts updated with blog post URLs and lastModified from frontmatter
+- [x] **Blog RSS feed** — `/updates/feed.xml` route handler
+- [x] **Nav + homepage link** — "Updates" in nav, "Latest Updates" section on homepage with recent posts
+- [x] **First post** — "Turning Strategy Into Action" seed post
 
 ### P1 — High Priority: Other
 
@@ -48,11 +48,11 @@ Shared task list for all Claude agents (CLI and Desktop). Agents should check th
 
 ### P2 — Medium Priority
 
-- [ ] Add analytics (Vercel Analytics or similar)
+- [x] Add analytics (Vercel Analytics) — @vercel/analytics installed, Analytics component in layout.tsx
 - [ ] Improve mobile responsiveness and test on various screen sizes
 - [ ] Add a contact form (e.g., with Formspree or Supabase edge function)
 - [ ] Add page transitions / scroll animations
-- [ ] Add LinkedIn/social links to footer
+- [x] Add LinkedIn/social links to footer — LinkedIn icon added to footer nav
 
 ### P3 — Nice to Have
 
