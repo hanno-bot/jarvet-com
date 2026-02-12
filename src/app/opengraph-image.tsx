@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 
+// Edge runtime required for ImageResponse — Vercel CDN caches the result
 export const runtime = "edge";
 
 export const alt = "Jarvet Consulting — Strategic Consulting for Modern Leaders";

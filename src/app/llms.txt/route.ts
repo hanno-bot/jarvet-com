@@ -1,3 +1,6 @@
+// Force static generation at build time — no serverless function needed
+export const dynamic = "force-static";
+
 export function GET() {
   const content = `# Jarvet Consulting
 > Bespoke strategic consulting specializing in rapid turnarounds
