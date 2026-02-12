@@ -24,6 +24,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.8,
     },
+    {
+      url: "https://jarvet.com/case-studies",
+      lastModified: new Date("2026-02-12"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
     ...postEntries,
   ];
 }

@@ -1,6 +1,7 @@
 import { getAllPosts } from "@/lib/posts";
 import type { Metadata } from "next";
 import Link from "next/link";
+import MobileMenu from "@/components/MobileMenu";
 
 export const metadata: Metadata = {
   title: "Updates",
@@ -54,6 +55,16 @@ export default function UpdatesPage() {
                 Book a Free Session
               </Link>
             </div>
+            <MobileMenu
+              links={[
+                { href: "/#services", label: "Services", isLink: true },
+                { href: "/#about", label: "About", isLink: true },
+                { href: "/updates", label: "Updates", isLink: true },
+                { href: "/case-studies", label: "Case Studies", isLink: true },
+              ]}
+              ctaHref="/#contact"
+              ctaLabel="Book a Free Session"
+            />
           </div>
         </nav>
       </header>

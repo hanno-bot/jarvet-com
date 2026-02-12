@@ -3,6 +3,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import MobileMenu from "@/components/MobileMenu";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -117,6 +118,16 @@ export default async function PostPage({ params }: Props) {
                 Book a Free Session
               </Link>
             </div>
+            <MobileMenu
+              links={[
+                { href: "/#services", label: "Services", isLink: true },
+                { href: "/#about", label: "About", isLink: true },
+                { href: "/updates", label: "Updates", isLink: true },
+                { href: "/case-studies", label: "Case Studies", isLink: true },
+              ]}
+              ctaHref="/#contact"
+              ctaLabel="Book a Free Session"
+            />
           </div>
         </nav>
       </header>

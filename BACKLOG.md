@@ -49,12 +49,12 @@ Shared task list for all Claude agents (CLI and Desktop). Agents should check th
 ### P2 — Medium Priority
 
 - [x] Add analytics (Vercel Analytics) — @vercel/analytics installed, Analytics component in layout.tsx
-- [ ] Improve mobile responsiveness and test on various screen sizes
-- [ ] Add a contact form (e.g., with Formspree or Supabase edge function)
-- [ ] Add page transitions / scroll animations
+- [x] Improve mobile responsiveness and test on various screen sizes — MobileMenu component with hamburger toggle added to all pages
+- [x] Add a contact form (e.g., with Formspree or Supabase edge function) — ContactForm component with Formspree integration
+- [x] Add page transitions / scroll animations — FadeIn component with IntersectionObserver for scroll-triggered animations
 - [x] Add LinkedIn/social links to footer — LinkedIn icon added to footer nav
 
 ### P3 — Nice to Have
 
-- [ ] Add dark/light mode toggle
-- [ ] Add case studies page
+- [x] Add dark/light mode toggle — ThemeToggle component with localStorage persistence, system preference detection, FOUC prevention script
+- [x] Add case studies page — `/case-studies` page with all 5 client success stories

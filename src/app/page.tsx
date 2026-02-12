@@ -1,5 +1,9 @@
 import { getAllPosts } from "@/lib/posts";
 import Link from "next/link";
+import ContactForm from "@/components/ContactForm";
+import MobileMenu from "@/components/MobileMenu";
+import FadeIn from "@/components/FadeIn";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Home() {
   const recentPosts = getAllPosts().slice(0, 3);
@@ -8,7 +12,8 @@ export default function Home() {
       {/* Navigation */}
       <header>
         <nav
-          className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100"
+          className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm border-b"
+          style={{ backgroundColor: "var(--nav-bg)", borderColor: "var(--border)" }}
           aria-label="Main navigation"
         >
           <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -31,12 +36,31 @@ export default function Home() {
               <Link href="/updates" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
                 Updates
               </Link>
+              <Link href="/case-studies" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                Case Studies
+              </Link>
+              <ThemeToggle />
               <a
                 href="#contact"
                 className="text-sm font-semibold px-5 py-2.5 rounded-md text-white transition-colors bg-[var(--navy)] hover:bg-[var(--navy-light)]"
               >
                 Book a Free Session
               </a>
+            </div>
+            <div className="flex items-center gap-2 md:hidden">
+              <ThemeToggle />
+              <MobileMenu
+              links={[
+                { href: "#services", label: "Services" },
+                { href: "#what-you-get", label: "What You Get" },
+                { href: "#about", label: "About" },
+                { href: "#testimonials", label: "Testimonials" },
+                { href: "/updates", label: "Updates", isLink: true },
+                { href: "/case-studies", label: "Case Studies", isLink: true },
+              ]}
+              ctaHref="#contact"
+              ctaLabel="Book a Free Session"
+            />
             </div>
           </div>
         </nav>
@@ -88,7 +112,7 @@ export default function Home() {
         </section>
 
         {/* Services Section */}
-        <section id="services" aria-label="Services" className="py-24 md:py-32 bg-white">
+        <section id="services" aria-label="Services" className="py-24 md:py-32" style={{ backgroundColor: "var(--bg)" }}>
           <div className="max-w-6xl mx-auto px-6">
             <p
               className="text-sm font-semibold tracking-widest uppercase mb-4"
@@ -99,11 +123,12 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: "var(--navy)" }}>
               How I Help
             </h2>
-            <p className="text-lg text-gray-500 mb-16 max-w-2xl">
+            <p className="text-lg mb-16 max-w-2xl" style={{ color: "var(--text-secondary)" }}>
               Ideal for CEOs, CTOs, founders, and executives aiming to stay ahead
               of the curve and drive meaningful change.
             </p>
 
+            <FadeIn>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
                 {
@@ -149,7 +174,8 @@ export default function Home() {
               ].map((service) => (
                 <article
                   key={service.title}
-                  className="p-8 rounded-lg border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all duration-300"
+                  className="p-8 rounded-lg hover:shadow-lg transition-all duration-300"
+                  style={{ backgroundColor: "var(--card-bg)", border: "1px solid var(--border)" }}
                 >
                   <div
                     className="w-14 h-14 rounded-md flex items-center justify-center mb-6"
@@ -160,15 +186,16 @@ export default function Home() {
                   <h3 className="text-xl font-bold mb-3" style={{ color: "var(--navy)" }}>
                     {service.title}
                   </h3>
-                  <p className="text-gray-500 leading-relaxed">{service.description}</p>
+                  <p className="leading-relaxed" style={{ color: "var(--text-secondary)" }}>{service.description}</p>
                 </article>
               ))}
             </div>
+            </FadeIn>
           </div>
         </section>
 
         {/* What You Get Section */}
-        <section id="what-you-get" aria-label="What you get" className="py-24 md:py-32" style={{ backgroundColor: "var(--light)" }}>
+        <section id="what-you-get" aria-label="What you get" className="py-24 md:py-32" style={{ backgroundColor: "var(--bg-alt)" }}>
           <div className="max-w-6xl mx-auto px-6">
             <p
               className="text-sm font-semibold tracking-widest uppercase mb-4"
@@ -179,12 +206,13 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: "var(--navy)" }}>
               The Strategic Turnaround Blueprint
             </h2>
-            <p className="text-lg text-gray-500 mb-16 max-w-2xl">
+            <p className="text-lg mb-16 max-w-2xl" style={{ color: "var(--text-secondary)" }}>
               A comprehensive, customized strategy engagement designed to give you
               the insights, tools, and confidence to navigate today&apos;s dynamic
               business landscape.
             </p>
 
+            <FadeIn>
             <div className="grid md:grid-cols-2 gap-8">
               {[
                 {
@@ -214,7 +242,8 @@ export default function Home() {
               ].map((item) => (
                 <article
                   key={item.number}
-                  className="flex gap-6 p-8 rounded-lg bg-white border border-gray-100"
+                  className="flex gap-6 p-8 rounded-lg"
+                  style={{ backgroundColor: "var(--card-bg)", border: "1px solid var(--border)" }}
                 >
                   <span
                     className="text-3xl font-bold shrink-0"
@@ -227,17 +256,19 @@ export default function Home() {
                     <h3 className="text-xl font-bold mb-2" style={{ color: "var(--navy)" }}>
                       {item.title}
                     </h3>
-                    <p className="text-gray-500 leading-relaxed">{item.description}</p>
+                    <p className="leading-relaxed" style={{ color: "var(--text-secondary)" }}>{item.description}</p>
                   </div>
                 </article>
               ))}
             </div>
+            </FadeIn>
           </div>
         </section>
 
         {/* About Section */}
-        <section id="about" aria-label="About Hanno Jarvet" className="py-24 md:py-32 bg-white">
+        <section id="about" aria-label="About Hanno Jarvet" className="py-24 md:py-32" style={{ backgroundColor: "var(--bg)" }}>
           <div className="max-w-6xl mx-auto px-6">
+            <FadeIn>
             <div className="grid md:grid-cols-2 gap-16 items-center">
               <div>
                 <p
@@ -249,7 +280,7 @@ export default function Home() {
                 <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: "var(--navy)" }}>
                   Hanno Jarvet
                 </h2>
-                <div className="space-y-4 text-gray-600 leading-relaxed">
+                <div className="space-y-4 leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                   <p>
                     I offer bespoke strategic consulting, specializing in rapid
                     turnarounds for businesses facing today&apos;s fast-paced market
@@ -297,11 +328,12 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            </FadeIn>
           </div>
         </section>
 
         {/* Testimonials Section */}
-        <section id="testimonials" aria-label="Client testimonials" className="py-24 md:py-32" style={{ backgroundColor: "var(--light)" }}>
+        <section id="testimonials" aria-label="Client testimonials" className="py-24 md:py-32" style={{ backgroundColor: "var(--bg-alt)" }}>
           <div className="max-w-6xl mx-auto px-6">
             <p
               className="text-sm font-semibold tracking-widest uppercase mb-4"
@@ -313,6 +345,7 @@ export default function Home() {
               What Clients Say
             </h2>
 
+            <FadeIn>
             <div className="grid md:grid-cols-2 gap-8">
               {[
                 {
@@ -342,27 +375,30 @@ export default function Home() {
               ].map((testimonial, i) => (
                 <blockquote
                   key={i}
-                  className="p-8 rounded-lg border border-gray-100 bg-white"
+                  className="p-8 rounded-lg"
+                  style={{ backgroundColor: "var(--card-bg)", border: "1px solid var(--border)" }}
                 >
                   <div className="mb-6" style={{ color: "var(--gold)" }}>
                     <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                     </svg>
                   </div>
-                  <p className="text-gray-600 leading-relaxed mb-6 italic">
+                  <p className="leading-relaxed mb-6 italic" style={{ color: "var(--text-secondary)" }}>
                     &ldquo;{testimonial.quote}&rdquo;
                   </p>
                   <footer>
                     <p className="font-semibold" style={{ color: "var(--navy)" }}>
                       {testimonial.name}
                     </p>
-                    <p className="text-sm text-gray-400">{testimonial.role}</p>
+                    <p className="text-sm" style={{ color: "var(--text-muted)" }}>{testimonial.role}</p>
                   </footer>
                 </blockquote>
               ))}
             </div>
+            </FadeIn>
 
             {/* Featured Testimonial */}
+            <FadeIn delay={200}>
             <blockquote
               className="mt-8 p-10 rounded-lg"
               style={{ background: "linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%)" }}
@@ -389,12 +425,13 @@ export default function Home() {
                 <p className="text-gray-400 text-sm">Founder and CEO, Begin.eu</p>
               </footer>
             </blockquote>
+            </FadeIn>
           </div>
         </section>
 
         {/* Latest Updates Section */}
         {recentPosts.length > 0 && (
-          <section aria-label="Latest updates" className="py-24 md:py-32 bg-white">
+          <section aria-label="Latest updates" className="py-24 md:py-32" style={{ backgroundColor: "var(--bg)" }}>
             <div className="max-w-6xl mx-auto px-6">
               <p
                 className="text-sm font-semibold tracking-widest uppercase mb-4"
@@ -405,7 +442,7 @@ export default function Home() {
               <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: "var(--navy)" }}>
                 Insights &amp; Updates
               </h2>
-              <p className="text-lg text-gray-500 mb-16 max-w-2xl">
+              <p className="text-lg mb-16 max-w-2xl" style={{ color: "var(--text-secondary)" }}>
                 Thoughts on strategy, leadership, and turning challenges into opportunities.
               </p>
 
@@ -414,9 +451,10 @@ export default function Home() {
                   <Link
                     key={post.slug}
                     href={`/updates/${post.slug}`}
-                    className="group p-8 rounded-lg border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all duration-300 block"
+                    className="group p-8 rounded-lg hover:shadow-lg transition-all duration-300 block"
+                    style={{ backgroundColor: "var(--card-bg)", border: "1px solid var(--border)" }}
                   >
-                    <time className="text-sm text-gray-400" dateTime={post.date}>
+                    <time className="text-sm" style={{ color: "var(--text-muted)" }} dateTime={post.date}>
                       {new Date(post.date).toLocaleDateString("en-US", {
                         year: "numeric",
                         month: "long",
@@ -429,7 +467,7 @@ export default function Home() {
                     >
                       {post.title}
                     </h3>
-                    <p className="text-gray-500 leading-relaxed">{post.summary}</p>
+                    <p className="leading-relaxed" style={{ color: "var(--text-secondary)" }}>{post.summary}</p>
                   </Link>
                 ))}
               </div>
@@ -437,8 +475,8 @@ export default function Home() {
               <div className="mt-12 text-center">
                 <Link
                   href="/updates"
-                  className="inline-flex items-center justify-center px-8 py-3 rounded-md text-sm font-semibold transition-colors border border-gray-200 hover:border-gray-300 hover:bg-gray-50"
-                  style={{ color: "var(--navy)" }}
+                  className="inline-flex items-center justify-center px-8 py-3 rounded-md text-sm font-semibold transition-colors"
+                  style={{ color: "var(--text)", border: "1px solid var(--border)" }}
                 >
                   View All Updates
                 </Link>
@@ -448,7 +486,7 @@ export default function Home() {
         )}
 
         {/* FAQ Section */}
-        <section id="faq" aria-label="Frequently asked questions" className="py-24 md:py-32 bg-white">
+        <section id="faq" aria-label="Frequently asked questions" className="py-24 md:py-32" style={{ backgroundColor: "var(--bg)" }}>
           <div className="max-w-3xl mx-auto px-6">
             <p
               className="text-sm font-semibold tracking-widest uppercase mb-4"
@@ -460,6 +498,7 @@ export default function Home() {
               Frequently Asked Questions
             </h2>
 
+            <FadeIn>
             <div className="space-y-8">
               {[
                 {
@@ -483,14 +522,15 @@ export default function Home() {
                     "Booking a call is a great opportunity to discuss your specific challenges and goals directly with an expert. It's a chance to receive initial insights and understand how the Strategic Turnaround Blueprint can be tailored to your needs. This call is a no-obligation, high-value opportunity to explore how we can help transform your organization's strategy for lasting success.",
                 },
               ].map((faq, i) => (
-                <article key={i} className="border-b border-gray-100 pb-8">
+                <article key={i} className="pb-8" style={{ borderBottom: "1px solid var(--border)" }}>
                   <h3 className="text-lg font-semibold mb-3" style={{ color: "var(--navy)" }}>
                     {faq.question}
                   </h3>
-                  <p className="text-gray-500 leading-relaxed">{faq.answer}</p>
+                  <p className="leading-relaxed" style={{ color: "var(--text-secondary)" }}>{faq.answer}</p>
                 </article>
               ))}
             </div>
+            </FadeIn>
           </div>
         </section>
 
@@ -532,12 +572,22 @@ export default function Home() {
                 hanno@jarvet.com
               </a>
             </p>
+
+            {/* Contact Form */}
+            <div className="mt-16 pt-16 border-t border-white/10">
+              <p className="text-sm font-semibold tracking-widest uppercase mb-4" style={{ color: "var(--gold)" }}>
+                Or send a message directly
+              </p>
+              <div className="max-w-md mx-auto text-left">
+                <ContactForm />
+              </div>
+            </div>
           </div>
         </section>
       </main>
 
       {/* Footer */}
-      <footer className="py-8 border-t border-gray-100 bg-white" aria-label="Site footer">
+      <footer className="py-8" style={{ borderTop: "1px solid var(--border)", backgroundColor: "var(--bg)" }} aria-label="Site footer">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-gray-400">
             &copy; {new Date().getFullYear()} Jarvet Consulting. All rights reserved.
@@ -553,6 +603,9 @@ export default function Home() {
               <a href="#testimonials" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">
                 Testimonials
               </a>
+              <Link href="/case-studies" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">
+                Case Studies
+              </Link>
               <a href="#contact" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">
                 Contact
               </a>
