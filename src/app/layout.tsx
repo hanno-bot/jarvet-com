@@ -8,9 +8,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Hanno Jarvet | Business Strategy Consultant",
+  title: "Jarvet Consulting | Turning Challenges into Opportunities",
   description:
-    "Expert business strategy formulation and execution. Helping organizations define their path forward and deliver results.",
+    "Bespoke strategic consulting specializing in rapid turnarounds. Utilizing Wardley Mapping to equip leaders with tailored strategies for immediate impact and long-term success.",
 };
 
 export default function RootLayout({
