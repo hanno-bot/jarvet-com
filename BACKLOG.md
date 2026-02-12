@@ -54,6 +54,14 @@ Shared task list for all Claude agents (CLI and Desktop). Agents should check th
 - [x] Add page transitions / scroll animations — FadeIn component with IntersectionObserver for scroll-triggered animations
 - [x] Add LinkedIn/social links to footer — LinkedIn icon added to footer nav
 
+### P1 — High Priority: Content Integration (from old WordPress site)
+
+- [x] **"The Challenge" section** — Pain points section (Rapid Market Shifts, Internal Resistance, Difficulty Achieving Turnarounds) after hero
+- [x] **"Cost of Inaction" section** — Implications section (Extended Timeframes, Quality of Outcomes, Misallocated Resources, Opportunity Costs, Stress) after challenge
+- [x] **€999 pricing on page** — Pricing callout with CTA in What You Get section
+- [x] **"Less than 30 days" promise** — Animated badge in hero section
+- [x] **Enrich CTA section** — Session benefit bullets (Initial Diagnosis, Customized Insights, Service Overview, No Obligation)
+
 ### P3 — Nice to Have
 
 - [x] Add dark/light mode toggle — ThemeToggle component with localStorage persistence, system preference detection, FOUC prevention script

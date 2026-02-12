@@ -75,6 +75,12 @@ export default function Home() {
         >
           <div className="max-w-6xl mx-auto px-6 py-24 md:py-32">
             <div className="max-w-3xl">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/5 mb-6">
+                <span className="w-2 h-2 rounded-full bg-[var(--gold)] animate-pulse" aria-hidden="true" />
+                <span className="text-sm font-medium text-gray-300">
+                  Results in Less Than 30 Days
+                </span>
+              </div>
               <p
                 className="text-sm font-semibold tracking-widest uppercase mb-6"
                 style={{ color: "var(--gold)" }}
@@ -108,6 +114,139 @@ export default function Home() {
                 </a>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* The Challenge Section */}
+        <section aria-label="The challenge" className="py-24 md:py-32" style={{ backgroundColor: "var(--bg)" }}>
+          <div className="max-w-6xl mx-auto px-6">
+            <p
+              className="text-sm font-semibold tracking-widest uppercase mb-4"
+              style={{ color: "var(--gold)" }}
+            >
+              The Challenge
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: "var(--navy)" }}>
+              Even Visionary Leaders Can Get Stuck
+            </h2>
+            <p className="text-lg mb-16 max-w-2xl" style={{ color: "var(--text-secondary)" }}>
+              Rapid market shifts and internal resistance can risk obsolescence in a
+              fast-changing business world. Traditional consulting models often rely on
+              outdated, one-size-fits-all strategies that consume excessive time and
+              resources.
+            </p>
+
+            <FadeIn>
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  title: "Rapid Market Shifts",
+                  description:
+                    "Technological advancements and shifting consumer behaviors can outpace your ability to adapt, causing you to lose market share to more agile competitors.",
+                  icon: (
+                    <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+                  ),
+                },
+                {
+                  title: "Internal Resistance",
+                  description:
+                    "Cultural inertia, fear of the unknown, or lack of alignment among team members can significantly slow down or even derail strategic initiatives, leading to stagnation.",
+                  icon: (
+                    <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728A9 9 0 0 1 5.636 5.636m12.728 12.728L5.636 5.636" />
+                    </svg>
+                  ),
+                },
+                {
+                  title: "Achieving Impactful Turnarounds",
+                  description:
+                    "Orchestrating a successful strategic turnaround under tight time constraints — aligning the organization, reallocating resources, and reassessing business models — is a formidable challenge.",
+                  icon: (
+                    <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+                    </svg>
+                  ),
+                },
+              ].map((challenge) => (
+                <article
+                  key={challenge.title}
+                  className="p-8 rounded-lg"
+                  style={{ backgroundColor: "var(--card-bg)", border: "1px solid var(--border)" }}
+                >
+                  <div
+                    className="w-14 h-14 rounded-md flex items-center justify-center mb-6"
+                    style={{ backgroundColor: "var(--bg-alt)", color: "var(--text-secondary)" }}
+                  >
+                    {challenge.icon}
+                  </div>
+                  <h3 className="text-xl font-bold mb-3" style={{ color: "var(--navy)" }}>
+                    {challenge.title}
+                  </h3>
+                  <p className="leading-relaxed" style={{ color: "var(--text-secondary)" }}>{challenge.description}</p>
+                </article>
+              ))}
+            </div>
+            </FadeIn>
+          </div>
+        </section>
+
+        {/* Cost of Inaction Section */}
+        <section aria-label="Cost of inaction" className="py-24 md:py-32" style={{ backgroundColor: "var(--bg-alt)" }}>
+          <div className="max-w-6xl mx-auto px-6">
+            <p
+              className="text-sm font-semibold tracking-widest uppercase mb-4"
+              style={{ color: "var(--gold)" }}
+            >
+              The Cost of Inaction
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: "var(--navy)" }}>
+              The High Price of Ineffective Strategies
+            </h2>
+            <p className="text-lg mb-16 max-w-2xl" style={{ color: "var(--text-secondary)" }}>
+              In today&apos;s competitive landscape, relying on outdated or generic strategic
+              solutions can be a costly misstep. Here&apos;s what sticking with conventional
+              methods might be costing you:
+            </p>
+
+            <FadeIn>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+              {[
+                {
+                  title: "Extended Timeframes",
+                  description: "Spending valuable time on ineffective strategic planning instead of focusing on core business activities and growth.",
+                },
+                {
+                  title: "Quality of Outcomes",
+                  description: "Generic strategies produce generic results that fail to address your unique competitive position.",
+                },
+                {
+                  title: "Misallocated Resources",
+                  description: "Pouring budget into cumbersome, unproductive strategic processes that drain rather than build value.",
+                },
+                {
+                  title: "Opportunity Costs",
+                  description: "Every day spent on the wrong strategy is a day your competitors are pulling ahead with the right one.",
+                },
+                {
+                  title: "Stress and Frustration",
+                  description: "Leaders bogged down by strategic uncertainty face burnout and decision fatigue that permeates the entire organization.",
+                },
+              ].map((item) => (
+                <article
+                  key={item.title}
+                  className="p-6 rounded-lg text-center"
+                  style={{ backgroundColor: "var(--card-bg)", border: "1px solid var(--border)" }}
+                >
+                  <h3 className="text-base font-bold mb-2" style={{ color: "var(--navy)" }}>
+                    {item.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>{item.description}</p>
+                </article>
+              ))}
+            </div>
+            </FadeIn>
           </div>
         </section>
 
@@ -260,6 +399,31 @@ export default function Home() {
                   </div>
                 </article>
               ))}
+            </div>
+            </FadeIn>
+
+            {/* Pricing Callout */}
+            <FadeIn delay={200}>
+            <div
+              className="mt-12 p-8 md:p-10 rounded-lg text-center"
+              style={{ background: "linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%)" }}
+            >
+              <p className="text-sm font-semibold tracking-widest uppercase mb-3" style={{ color: "var(--gold)" }}>
+                Special Offer
+              </p>
+              <p className="text-4xl md:text-5xl font-bold text-white mb-3">
+                &euro;999
+              </p>
+              <p className="text-gray-300 leading-relaxed max-w-xl mx-auto mb-6">
+                You&apos;re not just getting a blueprint — you&apos;re setting a new course for
+                your organization. See transformational results in less than 30 days.
+              </p>
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center px-8 py-4 rounded-md text-base font-semibold transition-colors bg-[var(--gold)] text-[var(--navy)] hover:bg-[var(--gold-light)]"
+              >
+                Get Started Today
+              </a>
             </div>
             </FadeIn>
           </div>
@@ -551,15 +715,31 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Transform Your Strategy with Expert Insights
             </h2>
-            <p className="text-lg text-gray-300 mb-4 leading-relaxed">
+            <p className="text-lg text-gray-300 mb-8 leading-relaxed">
               Book a personalized, free 30-minute strategy session with Hanno.
               Discuss your specific challenges, receive expert insights tailored to
               your unique situation, and learn exactly how the Strategic Turnaround
               Blueprint can work for you.
             </p>
-            <p className="text-gray-400 mb-10 leading-relaxed">
-              No obligation — just a focused conversation about your organization&apos;s future.
-            </p>
+
+            <div className="grid sm:grid-cols-2 gap-4 max-w-lg mx-auto mb-10 text-left">
+              {[
+                { title: "Initial Diagnosis", description: "Discuss your specific challenges and pain points" },
+                { title: "Customized Insights", description: "Receive expert insights tailored to your situation" },
+                { title: "Service Overview", description: "Learn how the Blueprint can work for you" },
+                { title: "No Obligation", description: "Ask questions and explore the potential impact" },
+              ].map((item) => (
+                <div key={item.title} className="flex gap-3 items-start">
+                  <svg className="w-5 h-5 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="var(--gold)" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                  </svg>
+                  <div>
+                    <p className="text-white font-semibold text-sm">{item.title}</p>
+                    <p className="text-gray-400 text-sm">{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
             <a
               href="mailto:hanno@jarvet.com"
               className="inline-flex items-center justify-center px-10 py-4 rounded-md text-lg font-semibold transition-colors bg-[var(--gold)] text-[var(--navy)] hover:bg-[var(--gold-light)]"
