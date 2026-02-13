@@ -741,14 +741,14 @@ export default function Home() {
               ))}
             </div>
             <a
-              href="mailto:hanno@jarvet.com"
+              href="mailto:hanno@jarvet.com?subject=Free%2030-Minute%20Strategy%20Session&body=Hi%20Hanno%2C%0A%0AI%E2%80%99d%20like%20to%20book%20a%20free%2030-minute%20strategy%20session.%0A%0AMy%20name%3A%20%0ACompany%3A%20%0AKey%20challenge%3A%20%0A%0APreferred%20time%3A%20"
               className="inline-flex items-center justify-center px-10 py-4 rounded-md text-lg font-semibold transition-colors bg-[var(--gold)] text-[var(--navy)] hover:bg-[var(--gold-light)]"
             >
               Book Your Free 30-Minute Strategy Session
             </a>
             <p className="text-gray-400 mt-6 text-sm">
               Or reach out directly at{" "}
-              <a href="mailto:hanno@jarvet.com" className="underline hover:text-white transition-colors">
+              <a href="mailto:hanno@jarvet.com?subject=Free%2030-Minute%20Strategy%20Session&body=Hi%20Hanno%2C%0A%0AI%E2%80%99d%20like%20to%20book%20a%20free%2030-minute%20strategy%20session.%0A%0AMy%20name%3A%20%0ACompany%3A%20%0AKey%20challenge%3A%20%0A%0APreferred%20time%3A%20" className="underline hover:text-white transition-colors">
                 hanno@jarvet.com
               </a>
             </p>
