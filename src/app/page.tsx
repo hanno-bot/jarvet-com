@@ -85,12 +85,12 @@ export default function Home() {
                 className="text-sm font-semibold tracking-widest uppercase mb-6"
                 style={{ color: "var(--gold)" }}
               >
-                Strategic Consulting for Modern Leaders
+                Strategic Situational Awareness for CEOs and Senior Executives
               </p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-                Turning Challenges
-                <br />
-                into Opportunities.
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
+                Most strategies fail between the boardroom and the front line.
+                I close that gap — from strategic decision to front line
+                execution — in 30 days.
               </h1>
               <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-10 max-w-2xl">
                 I offer bespoke strategic consulting, specializing in rapid
@@ -402,27 +402,21 @@ export default function Home() {
             </div>
             </FadeIn>
 
-            {/* Pricing Callout */}
+            {/* Tailored Engagement CTA */}
             <FadeIn delay={200}>
             <div
               className="mt-12 p-8 md:p-10 rounded-lg text-center"
               style={{ background: "linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%)" }}
             >
-              <p className="text-sm font-semibold tracking-widest uppercase mb-3" style={{ color: "var(--gold)" }}>
-                Special Offer
-              </p>
-              <p className="text-4xl md:text-5xl font-bold text-white mb-3">
-                &euro;999
-              </p>
-              <p className="text-gray-300 leading-relaxed max-w-xl mx-auto mb-6">
-                You&apos;re not just getting a blueprint — you&apos;re setting a new course for
-                your organization. See transformational results in less than 30 days.
+              <p className="text-lg text-gray-300 leading-relaxed max-w-xl mx-auto mb-6">
+                Engagements are tailored to each situation. Book a call to discuss
+                what&apos;s right for you.
               </p>
               <a
                 href="#contact"
                 className="inline-flex items-center justify-center px-8 py-4 rounded-md text-base font-semibold transition-colors bg-[var(--gold)] text-[var(--navy)] hover:bg-[var(--gold-light)]"
               >
-                Get Started Today
+                Book a Free Strategy Session
               </a>
             </div>
             </FadeIn>
