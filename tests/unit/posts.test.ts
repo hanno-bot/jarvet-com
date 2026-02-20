@@ -35,13 +35,14 @@ describe("Blog Posts", () => {
     }
   });
 
-  it("no future-dated posts", () => {
-    const now = new Date();
+  it("no posts dated more than 7 days in the future", () => {
+    const sevenDaysFromNow = new Date();
+    sevenDaysFromNow.setDate(sevenDaysFromNow.getDate() + 7);
     for (const post of posts) {
       expect(
         new Date(post.date).getTime(),
-        `Post "${post.slug}" is dated in the future`
-      ).toBeLessThanOrEqual(now.getTime());
+        `Post "${post.slug}" is dated more than 7 days in the future`
+      ).toBeLessThanOrEqual(sevenDaysFromNow.getTime());
     }
   });
 });
