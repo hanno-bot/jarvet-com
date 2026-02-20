@@ -15,7 +15,7 @@ test.describe("Blog", () => {
 
   test("individual blog post renders with content", async ({ page }) => {
     const response = await page.goto(
-      "/updates/turning-strategy-into-action"
+      "/updates/three-excuses-slowing-down-defence"
     );
     expect(response?.status()).toBe(200);
     await expect(page.locator("h1")).toBeVisible();
